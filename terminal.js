@@ -38,6 +38,9 @@ function execute(cmdExe) {
   hist.appendChild(lastCmdLine);
 
   switch (cmdExe) {
+    case "startx":
+      startx();
+      break;
     case "ls":
       ls();
       break;
@@ -87,6 +90,15 @@ function execute(cmdExe) {
   cmdHist.push(cmd.textContent);
   window.scrollTo(0, document.body.scrollHeight);
   cmd.textContent = "";
+}
+
+function startx() {
+  let returnValText = "Starting X Server...";
+  const returnVal = document.createElement("p");
+  returnVal.textContent = returnValText;
+  hist.appendChild(returnVal);
+
+  window.location.href = "https://calebstein.net/?mode=x_server";
 }
 
 function ls(lsDir) {
@@ -169,7 +181,7 @@ function clearTerm() {
 }
 
 function help() {
-  const returnValText = "Welcome to websh! Websh is the perfect way to read about me and my projects if you prefer a crappy shell emulation that I put together in two hours after a couple of glasses of wine instead of my actual website, which can be found at <a href=\"https://calebstein.net/\">calebstein.net</a>. Available commands are: ls cat uname neofetch clear help";
+  const returnValText = "Welcome to websh! Websh is the perfect way to read about me and my projects if you prefer a crappy shell emulation that I put together in two hours after a couple of glasses of wine instead of my actual website, which can be found at <a href=\"https://calebstein.net/\">calebstein.net</a>. Available commands are: startx ls cat uname neofetch clear help";
   const returnVal = document.createElement("p");
   returnVal.innerHTML = returnValText;
   hist.appendChild(returnVal);
