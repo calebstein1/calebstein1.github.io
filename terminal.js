@@ -188,7 +188,7 @@ function clearTerm() {
 }
 
 function help() {
-  const returnValText = "Welcome to websh! Websh is the perfect way to read about me and my projects if you prefer a crappy shell emulation that I put together in two hours after a couple of glasses of wine instead of my actual website, which can be found at <a href=\"https://calebstein.net/\">calebstein.net</a>. Available commands are: startx ls cat uname neofetch clear help";
+  const returnValText = "Welcome to websh! Websh is the perfect way to read about me and my projects if you prefer a crappy shell emulation that I put together in two hours after a couple of glasses of wine instead of my actual website, which can be found by running 'startx' here. Available commands are: startx ls cat uname neofetch clear help";
   const returnVal = document.createElement("p");
   returnVal.innerHTML = returnValText;
   hist.appendChild(returnVal);
