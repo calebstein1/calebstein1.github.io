@@ -1,0 +1,41 @@
+html {
+  font-family: monospace;
+  font-size: 12px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  background-color: black;
+  color: white;
+}
+a {
+  color: aquamarine;
+}
+.fetch {
+  display: flex;
+  gap: 8px;
+}
+.fetch > img {
+  width: 256px;
+  height: auto;
+}
+.fetch-text > ul {
+  margin-top: 4px;
+  gap: 4px;
+  flex-direction: column;
+  display: flex;
+}
+.prompt {
+  color: green;
+}
+.cursor {
+  animation: cursor 1s step-start infinite;
+}
+@keyframes cursor {
+  50% {
+    opacity: 0;
+  }
+}
