@@ -1,6 +1,7 @@
 const cmd = document.getElementById("cmd");
 const hist = document.getElementById("hist");
 const cmdHist = [];
+const futureHist = [];
 
 window.addEventListener("load", () => {
   fetch();
@@ -17,7 +18,11 @@ function getInput(input) {
   } else if (input == "Enter") {
     execute(cmd.textContent);
   } else if (input == "ArrowUp") {
+    futureHist.push(cmd.textContent);
     cmd.textContent = cmdHist.pop();
+  } else if (input == "ArrowDown") {
+    cmdHist.push(cmd.textContent);
+    cmd.textContent = futureHist.pop();
   } else if (input.length > 1) {
     return;
   } else {
@@ -87,6 +92,8 @@ function execute(cmdExe) {
       hist.appendChild(returnVal);
   }
 
+  cmdHist.push(...futureHist);
+  futureHist.length = 0;
   cmdHist.push(cmd.textContent);
   window.scrollTo(0, document.body.scrollHeight);
   cmd.textContent = "";
