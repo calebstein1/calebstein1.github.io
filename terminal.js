@@ -5,6 +5,7 @@ const futureHist = [];
 
 window.addEventListener("load", () => {
   fetch();
+  help();
 });
 
 window.addEventListener("keydown", (event) => { 
@@ -84,6 +85,9 @@ function execute(cmdExe) {
       break;
     case "help":
       help();
+      break;
+    case "exit":
+      exit();
       break;
     default:
       const returnValText = "Command not found, run 'help' to see what's available"
@@ -188,8 +192,12 @@ function clearTerm() {
 }
 
 function help() {
-  const returnValText = "Welcome to websh! Websh is the perfect way to read about me and my projects if you prefer a crappy shell emulation that I put together in two hours after a couple of glasses of wine instead of my actual website, which can be found by running 'startx' here. Available commands are: startx ls cat uname neofetch clear help";
+  const returnValText = "Welcome to websh! Websh is the perfect way to read about me and my projects if you prefer a crappy shell emulation that I put together in two hours after a couple of glasses of wine instead of my actual website, which can be found by running 'startx' here. Available commands are: startx ls cat uname neofetch clear help exit";
   const returnVal = document.createElement("p");
   returnVal.innerHTML = returnValText;
   hist.appendChild(returnVal);
+}
+
+function exit() {
+  window.location.href = "https://github.com/calebstein1";
 }
